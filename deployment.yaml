@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: saba-express-app
+  labels:
+    app: saba-express-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: saba-express-app
+  template:
+    metadata:
+      labels:
+        app: saba-express-app
+    spec:
+      containers:
+      - name: saba-express-app
+        image: localhost:5000/saba-express-app:latest
+        ports:
+        - containerPort: 3000
